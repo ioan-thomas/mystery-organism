@@ -47,12 +47,11 @@ const pAequorFactory = (number, arr) => {
     willLikelySUrvive(){
       let numOfCGBases = 0;
       for (let i = 0; i < this.dna.length; i++){
-
         if (this.dna[i] === 'C' || this.dna[i] === 'G'){
           numOfCGBases ++;
         }
-
       }
+      return ((numOfCGBases/this.dna.length) * 100) > 60;
     }
   }
 }
@@ -61,4 +60,3 @@ const newSpec = pAequorFactory(1, mockUpStrand());
 const anotherNewSpec = pAequorFactory(3, mockUpStrand());
 newSpec.mutate();
 newSpec.compareDNA(anotherNewSpec);
-
